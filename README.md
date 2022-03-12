@@ -47,7 +47,7 @@ Define values for all the following attrs:
 
 ### Nginx proxy manager
 
-1. Open the folder */npm*, and edit the file
+1. Open the folder */npm*, and edit the file *npm.env*;
 
 Define values for all the following attrs:
 
