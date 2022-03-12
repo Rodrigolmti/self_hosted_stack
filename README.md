@@ -167,6 +167,21 @@ Save and restart the Nextcloud instance;
 
 6. Now your Nextcloud is up and running, congratulations.
 
+## Setup systemd, to run scheduled jobs
+
+Note: You may want to change the default cron time, the default is 3 minutes, you can change it inside the file *nextcloudcron.timer*, changing the variable *OnUnitActiveSec*.
+
+1. Copy the two files inside the */systemd* folder to */etc/systemd/system/*
+
+2. Run the following command to start the job on the system boot;
+> systemctl enable nextcloudcron.timer
+
+2. Run the following command to start the job at once;
+> systemctl start nextcloudcron.timer
+
+3. And run the following command to check the status;
+> systemctl status nextcloudcron.timer
+
 ## Important notes
 
 In case that you have problems to set up your domain at NPM, be aware that for own domain, example: nextcloud.rodrigo.com.br you have a limit of 5 certificates within 168 hours. So let's encrypt will generate only five SSL certificates, if you reach the limit you need to test with a different domain.
