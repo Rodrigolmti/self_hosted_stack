@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+  nextcloud:
+  redis:
+
+services:
+  nc-db:
+    image: mariadb
+    restart: always
+    ports:
+      - '32568:3306'
+    env_file:
+      - nextcloud.env
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    command: redis-server --requirepass {redis_password}
+    volumes:
+      - redis:/data
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    depends_on:
+      - redis
+      - nc-db
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - nextcloud:/var/www/html
+    env_file:
+      - nextcloud.env
