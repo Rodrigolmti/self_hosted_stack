@@ -19,7 +19,7 @@ After we set up nginx, we can close the connection on those ports and use only t
 
 ### Nextcloud
 
-1. Open the folder */nextcloud*, and edit the file nextcloud.env:
+1. Open the folder */nextcloud*, and edit the file *.env*:
 
 Define values for all the following attrs:
 
@@ -47,7 +47,7 @@ Define values for all the following attrs:
 
 ### Nginx proxy manager
 
-1. Open the folder */npm*, and edit the file *npm.env*;
+1. Open the folder */npm*, and edit the file *.env*;
 
 Define values for all the following attrs:
 
@@ -147,19 +147,12 @@ Run the following command to install vim and create a config.php file, where we 
 4. Add the following code to the config.php file;
 
 ```php
-'redis' =>
-   array (
-     'host' => 'redis',
-     'port' => 6379,
-     'password' => '{redis_password}',
-),
-
-'default_phone_region' => '{your_region}', # Example BR
+'default_phone_region' => 'BR',
 'trashbin_retention_obligation' => '30, 60',
 'overwriteprotocol' => 'https',
 'maintenance' => false,
-'default_language' => '{your_locale}', # Example pt_BR
-'default_locale' => '{your_locale}', # Example pt_BR
+'default_language' => 'pt_BR',
+'default_locale' => 'pt_BR',
 ```
 
 Save and restart the Nextcloud instance;

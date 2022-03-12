@@ -11,7 +11,7 @@ services:
     ports:
       - '32568:3306'
     env_file:
-      - nextcloud.env
+      - .env
     volumes:
       - ./init:/docker-entrypoint-initdb.d
 
@@ -35,4 +35,4 @@ services:
     volumes:
       - nextcloud:/var/www/html
     env_file:
-      - nextcloud.env
+      - .env
