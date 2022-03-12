@@ -78,7 +78,7 @@ Connect via ssh or use *FileZilla* or *putty* to upload the file. In this step, 
 
 3. Wait until the installation finishes.
 
-4. Open in your browser *{you_vps_ip}:9000* and set up an admin account for Portainer.
+4. Open in your browser *{your_vps_ip}:9000* and set up an admin account for Portainer.
 
 ## Installing nginx proxy manager
 
@@ -92,7 +92,7 @@ Nginx proxy manager it is a container with an application that makes it easier t
 
 3. Deploy the stack that you have created.
 
-4. Open *{you_vps_ip}:81*, log with the following account and change your password after it.
+4. Open *{your_vps_ip}:81*, log with the following account and change your password after it.
 
 ```text
 admin@example.com
@@ -137,7 +137,7 @@ location = /.well-known/caldav {
 
 2. Deploy the stack that you have created;
 
-4. In your browser, open *{you_vps_ip}:8080*, to create the config.php file;
+4. In your browser, open *{your_vps_ip}:8080*, to create the config.php file;
 
 3. In Portainer select the Nextcloud container and click on `exec a new console`, to connect to the Nextcloud container;
 
