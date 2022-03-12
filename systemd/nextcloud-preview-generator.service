@@ -1,0 +1,10 @@
+[Unit]
+Description=Nextcloud Preview Generator
+
+[Service]
+Type=oneshot
+User=www-data
+ExecStart=/usr/bin/php -f /var/www/nextcloud/occ preview:pre-generate
+
+[Install]
+WantedBy=basic.target

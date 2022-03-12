@@ -174,13 +174,15 @@ Note: You may want to change the default cron time, the default is 3 minutes, yo
 1. Copy the two files inside the */systemd* folder to */etc/systemd/system/*
 
 2. Run the following command to start the job on the system boot;
-> systemctl enable nextcloudcron.timer
+> systemctl enable nextcloud-cron.timer
 
 2. Run the following command to start the job at once;
-> systemctl start nextcloudcron.timer
+> systemctl start nextcloud-cron.timer
 
 3. And run the following command to check the status;
-> systemctl status nextcloudcron.timer
+> systemctl status nextcloud-cron.timer
+
+If you want to run the job to generate previews, you need to run the same commands for *nextcloud-preview-generator.timer*.
 
 ## Important notes
 
