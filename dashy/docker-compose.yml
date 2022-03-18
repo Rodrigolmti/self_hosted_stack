@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  dashy:
+    image: lissy93/dashy
+    container_name: dashy
+    restart: always
+    ports:
+      - 4000:60

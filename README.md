@@ -103,10 +103,11 @@ Here we will configure three domains, example:
 - portainer.rodrigo.com.br → To access your Portainer application;
 - cloud.rodrigo.com.br → To access your Nextcloud application;
 - proxy.rodrigo.com.br → To access your nginx proxy manager application;
+- office.rodrigo.com.br → To access your onlyoffice instance (you will not access directly this URL, nextcloud will use it);
 
-Check the image on *images/npm_hosts_example* to see how it needs to be after you create the three hosts.
+Check the image on *images/npm_hosts_example* to see how it needs to be after you create the four hosts.
 
-5. Go to hosts → Proxy hosts and create a new one, this configuration is valid for all the three hosts
+5. Go to hosts → Proxy hosts and create a new one, this configuration is valid for all the four hosts
     - Tab detail: Check Cache assets, block common exploits and web sockets support;
     - Tab SSL: Force SSL, HTTP/2 and hosts enabled;
 
@@ -147,6 +148,14 @@ Run the following command to install vim and create a config.php file, where we 
 4. Add the following code to the config.php file;
 
 ```php
+'redis' =>
+   array (
+     'host' => 'redis',
+     'port' => 6379,
+     'password' => '{redis_password}',
+),
+'filelocking.enabled' => true,
+'memcache.locking' => '\OC\Memcache\Redis',
 'default_phone_region' => 'BR',
 'trashbin_retention_obligation' => '30, 60',
 'overwriteprotocol' => 'https',
@@ -184,9 +193,23 @@ Note: You may want to change the default cron time, the default is 3 minutes, yo
 
 If you want to run the job to generate previews, you need to run the same commands for *nextcloud-preview-generator.timer*.
 
+## Adding only office
+
+With only office you can have the same functionalities that you have on Google Drive to create slides, documents, sheets ...
+
+1. Add a new stack onn portainer with the name *onlyoffice* and upload the *docker-compose.yml* inside the folder */onlyoffice*;
+
+2. Open nextcloud with your admin account, add the onlyoffice plugin;
+
+3. Open setting menu and click on *onlyoffice* option;
+
+4. Add your domain to *ONLYOFFICE Docs address* (domain that you previous setup on npm, *office.rodrigo.com.br*);
+
+5. And to finish, you can change the configuration following the image *only_office_example* on /images;
+
 ## Important notes
 
-In case that you have problems to set up your domain at NPM, be aware that for own domain, example: nextcloud.rodrigo.com.br you have a limit of 5 certificates within 168 hours. So let's encrypt will generate only five SSL certificates, if you reach the limit you need to test with a different domain.
+In case that you have problems to set up your domain at NPM, be aware that for own domain, example: nextcloud.rodrigo.com.br you have a limit of 5 certificates within 168 hours. So let's encrypt will generate only five SSL certificates, if you reach the limit you need to test with a different subdomain.
 
 ## References
 

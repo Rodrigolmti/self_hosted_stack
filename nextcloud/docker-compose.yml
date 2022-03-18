@@ -7,6 +7,7 @@ volumes:
 services:
   nc-db:
     image: mariadb
+    container_name: nextcloud-db
     restart: always
     ports:
       - '32568:3306'
