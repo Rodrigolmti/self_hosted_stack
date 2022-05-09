@@ -1,0 +1,13 @@
+version: '3'
+
+volumes:
+  hauk:
+
+services:
+  hauk:
+    image: bilde2910/hauk:latest
+    container_name: hauk
+    ports:
+      - '4000:80'
+    volumes:
+      - hauk:/etc/hauk
